@@ -22,3 +22,51 @@ select floor(avg("YearsAtCompany")) as avg_Age_at_comp from hr
 --Average salary
 select floor(avg("MonthlyIncome")) as Average_salary from hr
 
+---Male and female attrition count 
+
+select count(*)filter (where "Gender"= 'Male') as male_attrition, 
+		count(*)filter (where "Gender"= 'Female') as female_attrition
+				from hr where "Attrition" = 'Yes'
+				
+---Attrition count as per Age group 
+
+select "AgeGroup",count(*) as Age_group_attrition from hr
+where "Attrition" = 'Yes'
+group by "AgeGroup"
+order by Age_group_attrition desc
+
+---Attrition count as per Salary Salb
+
+select "SalarySlab",count(*) as SalarySlab_attrition from hr
+where "Attrition" = 'Yes'
+group by "SalarySlab"
+order by SalarySlab_attrition desc
+
+---Attrition count as per JobRole
+
+select "JobRole",count(*) as JobRole_attrition from hr
+where "Attrition" = 'Yes'
+group by "JobRole"
+order by JobRole_attrition desc
+
+---Attrition count as per JobSatisfaction
+
+select "JobSatisfaction",count(*) as JobSatisfaction_attrition from hr
+where "Attrition" = 'Yes'
+group by "JobSatisfaction"
+order by JobSatisfaction_attrition desc
+
+---Attrition count as per Department
+
+select "Department",count(*) as Department_attrition from hr
+where "Attrition" = 'Yes'
+group by "Department"
+order by Department_attrition desc
+
+---Attrition count as per YearsAtCompany
+
+select "YearsAtCompany",count(*) as YearsAtCompany_attrition from hr
+where "Attrition" = 'Yes'
+group by "YearsAtCompany"
+order by YearsAtCompany_attrition desc
+
